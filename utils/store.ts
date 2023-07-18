@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 
 const userStore = create((set) => ({
-      user: null,
+      user: { nickname: '', room: '' },
       users: [],
       messages: [],
 
