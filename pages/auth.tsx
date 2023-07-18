@@ -32,7 +32,7 @@ export default function Auth() {
     resetUsers();
     try {
       const { data } = await axios.get(
-        `http://localhost:4000/rooms/${numberRoom}`
+        `https://hagenti-chat.onrender.com/rooms/${numberRoom}`
       );
       addUsers(data.users);
       Router.push("/chat");
