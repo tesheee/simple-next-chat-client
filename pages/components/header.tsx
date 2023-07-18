@@ -1,12 +1,11 @@
 "use client";
 import React from "react";
 import Link from "next/link";
-import userStore from "../store";
+import userStore from "../../utils/store";
 
 export default function Header() {
   const user = null;
   //const user = userStore((state) => state.user);
-  //const removeUser = userStore((state) => state.removeUser);
   return (
     <header>
       <div className='header sticky'>

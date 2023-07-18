@@ -1,19 +1,19 @@
 import React from "react";
 import Link from "next/link";
 import Router from "next/router";
-import socket from "./utils/socket";
+import socket from "../utils/socket";
 import Head from "next/head";
 import axios from "axios";
-import userStore from "./store";
+import userStore from "../utils/store";
 
 export default function Auth() {
   const [numberRoom, setNumberRoom] = React.useState("");
   const [nickname, setNickname] = React.useState("");
 
-  const addUsers = userStore((state) => state.addUsers);
-  const addUser = userStore((state) => state.addUser);
+  const addUsers = userStore((state: any) => state.addUsers);
+  const addUser = userStore((state: any) => state.addUser);
   //const resetMessages = userStore((state) => state.resetMessages);
-  const resetUsers = userStore((state) => state.resetUsers);
+  const resetUsers = userStore((state: any) => state.resetUsers);
   //const setMessages = userStore((state) => state.setMessages);
 
   const onEnter = async () => {

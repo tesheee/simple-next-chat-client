@@ -1,21 +1,21 @@
-import React from "react";
+import React, { SyntheticEvent } from "react";
 import Message from "./components/message";
-import userStore from "./store";
-import socket from "./utils/socket";
+import userStore from "../utils/store";
+import socket from "../utils/socket";
 import { useRouter } from "next/router";
 import { Head } from "next/document";
 
 export default function Chat() {
   const router = useRouter();
   const [value, setValue] = React.useState("");
-  const chatRef = React.useRef();
+  const chatRef = React.useRef<HTMLInputElement | null>(null);
   //const [messages, setMessages] = React.useState([]);
 
-  const users = userStore((state) => state.users);
-  const addUsers = userStore((state) => state.addUsers);
-  const setMessages = userStore((state) => state.setMessages);
-  const messages = userStore((state) => state.messages);
-  const user = userStore((state) => state.user);
+  const users = userStore((state: any) => state.users);
+  const addUsers = userStore((state: any) => state.addUsers);
+  const setMessages = userStore((state: any) => state.setMessages);
+  const messages = userStore((state: any) => state.messages);
+  const user = userStore((state: any) => state.user);
 
   //Сокеты юзеров и новых сообщений
   React.useEffect(() => {
@@ -41,7 +41,7 @@ export default function Chat() {
   };
 
   //Обработка нажатия на enter
-  const handleKeyPress = (event) => {
+  const handleKeyPress = (event: KeyboardEvent) => {
     if (event.key === "Enter") {
       event.preventDefault();
       onSendMessage();
@@ -66,7 +66,7 @@ export default function Chat() {
         <div className='product__feedback'>
           <div className='users_info'>Пользователей {users.length}</div>
           <div className='chat' ref={chatRef}>
-            {messages.map((message, i) => (
+            {messages.map((message: any, i: number) => (
               <Message
                 key={i}
                 date={message.date}
@@ -82,7 +82,7 @@ export default function Chat() {
               placeholder='Написать сообщение'
               value={value}
               onChange={(e) => setValue(e.target.value)}
-              onKeyPress={(e) => handleKeyPress(e)}
+              onKeyPress={(e: any) => handleKeyPress(e)}
             ></textarea>
             <div>
               <div className='formatting'>
