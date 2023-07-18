@@ -9,7 +9,7 @@ const userStore = create((set) => ({
       addUser: (newUser: any) => set((state: any) => ({ user: newUser })),
 
       // Метод удаления пользователя
-      removeUser: () => set((state: any) => ({ user: null })),
+      removeUser: () => set((state: any) => ({ user: { nickname: '', room: '' } })),
 
       addUsers: (newUsers: any) => set((state: any) => ({ users: newUsers })),
 
